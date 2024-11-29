@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant P as Producer
+    participant F as f2t.io Platform
+    participant B as Blockchain
+    participant AWS as AWS Backend
+
+    P->>F: Register as producer
+    F->>AWS: Verify credentials
+    AWS-->>F: Verification complete
+    F->>B: Mint Producer NFT
+    B-->>F: NFT minted
+    F->>AWS: Store NFT attributes
+    
+    Note over P,AWS: Producer NFT now contains:<br/>- Role permissions<br/>- Compliance status<br/>- Geographic bounds<br/>- Transaction limits
+    
+    P->>F: Create farm share offering
+    F->>AWS: Validate producer status
+    AWS-->>F: Status validated
+    F->>B: Deploy farm share contract
+    B-->>F: Contract deployed
+    F->>P: Farm share listing active

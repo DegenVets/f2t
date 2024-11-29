@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant C as Consumer
+    participant F as f2t.io Platform
+    participant B as Blockchain
+    participant P as Producer
+    participant AWS as AWS Backend
+    
+    C->>F: Purchase farm share
+    F->>AWS: Verify eligibility
+    AWS-->>F: Eligibility confirmed
+    F->>B: Mint share NFT
+    B-->>F: Share NFT minted
+    F->>C: Confirm ownership
+    
+    Note over C,P: Share NFT contains:<br/>- Ownership percentage<br/>- Product entitlements<br/>- Duration/terms<br/>- Geographic restrictions
+    
+    C->>F: Request product access
+    F->>B: Verify share ownership
+    B-->>F: Ownership verified
+    F->>P: Notify product request
+    P->>F: Confirm availability
+    F->>C: Grant product access

@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant C1 as Consumer 1
+    participant F as f2t.io Platform
+    participant B as Blockchain
+    participant C2 as Consumer 2
+    participant AWS as AWS Backend
+    
+    C1->>F: Request share transfer
+    F->>B: Verify ownership
+    B-->>F: Ownership confirmed
+    F->>AWS: Check transfer eligibility
+    AWS-->>F: Eligibility confirmed
+    
+    C1->>F: Initiate transfer to C2
+    F->>B: Update share NFT
+    B-->>F: NFT transferred
+    F->>C2: Confirm new ownership
+    
+    Note over C1,C2: Transfer updates:<br/>- Ownership records<br/>- Access permissions<br/>- Geographic validation<br/>- Compliance status
