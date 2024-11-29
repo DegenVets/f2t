@@ -50,8 +50,8 @@ rustup target add wasm32-unknown-unknown
 ### Development Setup
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/f2t.io.git
-cd f2t.io
+git clone --recurse-submodules https://github.com/yourusername/f2t.git
+cd f2t
 
 # Install workspace dependencies
 cargo build
@@ -67,18 +67,44 @@ trunk serve
 ## 🏗️ Project Structure
 
 ```
-f2t.io/
-├── programs/               # Solana smart contracts
-│   ├── farm_share/        # Farm share program
-│   └── access_control/    # NFT access control
-├── app/                   # Yew WebAssembly frontend
-│   ├── src/              # Frontend source code
-│   └── Cargo.toml        # Frontend dependencies
-├── lambda/               # Serverless functions
-│   ├── src/             # Lambda handlers
-│   └── Cargo.toml       # Lambda dependencies
-└── lib/                 # Shared Rust libraries
+FlexnetGX/
+├── GX-mobile/             # Mobile application development
+│   ├── src/               # Mobile app source code
+│   └── Cargo.toml         # Mobile dependencies
+├── GX-web/                # Web application frontend
+│   ├── src/               # Frontend source code (Yew WebAssembly)
+│   └── Cargo.toml         # Frontend dependencies
+├── GX-lambda/             # Serverless functions for backend
+│   ├── src/               # Lambda function handlers
+│   └── Cargo.toml         # Lambda dependencies
+├── GX-blockchain/         # Blockchain programs
+│   ├── farm_share/        # Solana program for farm shares
+│   ├── access_control/    # NFT-based access control
+│   └── Cargo.toml         # Blockchain dependencies
+└── lib/                   # Shared Rust libraries
+    ├── src/               # Common reusable code
+    └── Cargo.toml         # Library dependencies
 ```
+
+---
+
+### Description of Categories:
+1. **GX-mobile**:  
+   - Mobile application for consumers and producers, likely built using a cross-platform Rust framework or native tools.  
+
+2. **GX-web**:  
+   - Web-based frontend application using the Yew framework with WebAssembly.  
+
+3. **GX-lambda**:  
+   - Serverless backend services hosted on AWS Lambda, handling APIs, compliance logic, and off-chain operations.  
+
+4. **GX-blockchain**:  
+   - Solana smart contracts for farm share management, access control, and compliance verification.  
+
+5. **lib**:  
+   - Shared libraries for common functionalities across `GX-mobile`, `GX-web`, and `GX-lambda`.
+
+
 
 ## 🔧 Development
 
