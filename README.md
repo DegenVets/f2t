@@ -66,7 +66,7 @@ Field 2 Table integrates blockchain, NFTs, and AWS infrastructure to create a se
 
 **Onboarding**  
 1. Producers and consumers register on f2t.io.  
-2. An NFT is minted for each user, encoding their role and attributes.  
+2. An NFT module layer is minted for each user, encoding their role and attributes.
 
 **Transaction Workflow**  
 1. **Step 1**: A consumer places an order on the platform.  
