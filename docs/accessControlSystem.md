@@ -1,12 +1,23 @@
 # Field 2 Table (f2t.io) Access Control System
 ## Technical Specification for NFT-Based Dynamic Access Control
 
+## Table of Contents
+- [Overview](#overview)
+- [System Architecture](#system-architecture)
+- [NFT Layer](#1-nft-layer)
+- [AWS Integration](#2-aws-integration)
+- [Access Control Flow](#3-access-control-flow)
+- [Implementation Guidelines](#4-implementation-guidelines)
+- [Error Handling](#5-error-handling)
+- [Monitoring and Metrics](#6-monitoring-and-metrics)
+- [Appendix](#appendix)
+
 ## Overview
 This specification defines the integration between NFT-based dynamic attributes and AWS RBAC/ABAC for the Field 2 Table marketplace platform. The system combines the flexibility of blockchain-based NFTs with AWS's robust access control infrastructure.
 
 ## System Architecture
 
-    ```
+```mermaid
 flowchart TB
     U[User Request] --> NFT[NFT Validation]
     NFT --> MD[Metadata Decode]
@@ -34,11 +45,11 @@ flowchart TB
     
     style AWS fill:#f9f,stroke:#333,stroke-width:4px
     style Attributes fill:#bbf,stroke:#333,stroke-width:2px
-    ```
+```
 
-### 1. NFT Layer
+## 1. NFT Layer
 
-#### 1.1 NFT Structure
+### 1.1 NFT Structure
 ```json
 {
     "tokenId": "unique-identifier",
@@ -71,18 +82,18 @@ flowchart TB
 }
 ```
 
-#### 1.2 Dynamic Updates
-- Off-chain events trigger metadata updates via:
-  - Compliance verification
-  - Transaction monitoring
-  - Geolocation changes
-  - Administrative actions
+### 1.2 Dynamic Updates
+The system supports real-time updates through:
+- Compliance verification events
+- Transaction monitoring
+- Geolocation changes
+- Administrative actions
 
-### 2. AWS Integration
+## 2. AWS Integration
 
-#### 2.1 RBAC Base Roles
+### 2.1 RBAC Base Roles
 
-##### Producer Role
+#### Producer Role
 ```json
 {
     "Version": "2012-10-17",
@@ -107,7 +118,7 @@ flowchart TB
 }
 ```
 
-##### Consumer Role
+#### Consumer Role
 ```json
 {
     "Version": "2012-10-17",
@@ -130,7 +141,7 @@ flowchart TB
 }
 ```
 
-##### Auditor Role
+#### Auditor Role
 ```json
 {
     "Version": "2012-10-17",
@@ -153,9 +164,9 @@ flowchart TB
 }
 ```
 
-#### 2.2 ABAC Policies
+### 2.2 ABAC Policies
 
-##### Geographic Access Control
+#### Geographic Access Control
 ```json
 {
     "Version": "2012-10-17",
@@ -177,7 +188,7 @@ flowchart TB
 }
 ```
 
-##### Transaction Limits
+#### Transaction Limits
 ```json
 {
     "Version": "2012-10-17",
@@ -196,16 +207,16 @@ flowchart TB
 }
 ```
 
-### 3. Access Control Flow
+## 3. Access Control Flow
 
-#### 3.1 Authentication Process
+### 3.1 Authentication Process
 1. User initiates request with NFT token
 2. System validates NFT authenticity
 3. NFT metadata decoded and converted to AWS session attributes
 4. AWS evaluates RBAC and ABAC policies
 5. Access granted or denied based on combined evaluation
 
-#### 3.2 Session Management
+### 3.2 Session Management
 ```mermaid
 sequenceDiagram
     participant User
@@ -220,29 +231,29 @@ sequenceDiagram
     API-->>User: Response
 ```
 
-### 4. Implementation Guidelines
+## 4. Implementation Guidelines
 
-#### 4.1 NFT Updates
+### 4.1 NFT Updates
 - Use events system for attribute updates
 - Maintain version history in metadata
 - Implement rate limiting for updates
 - Cache frequently accessed attributes
 
-#### 4.2 AWS Configuration
+### 4.2 AWS Configuration
 - Use AWS Organizations for multi-region setup
 - Implement Service Control Policies (SCPs)
 - Configure CloudWatch monitoring
 - Set up AWS Config rules
 
-#### 4.3 Security Considerations
+### 4.3 Security Considerations
 - Implement NFT signature verification
 - Use AWS KMS for key management
 - Enable CloudTrail logging
 - Regular security audits
 
-### 5. Error Handling
+## 5. Error Handling
 
-#### 5.1 NFT Errors
+### 5.1 NFT Errors
 ```json
 {
     "error": {
@@ -256,7 +267,7 @@ sequenceDiagram
 }
 ```
 
-#### 5.2 AWS Access Denied
+### 5.2 AWS Access Denied
 ```json
 {
     "error": {
@@ -271,16 +282,16 @@ sequenceDiagram
 }
 ```
 
-### 6. Monitoring and Metrics
+## 6. Monitoring and Metrics
 
-#### 6.1 Key Performance Indicators
+### 6.1 Key Performance Indicators
 - Access request latency
 - Policy evaluation time
 - NFT validation success rate
 - Authorization failure rate
 - Attribute update frequency
 
-#### 6.2 CloudWatch Metrics
+### 6.2 CloudWatch Metrics
 ```json
 {
     "Namespace": "F2T/AccessControl",
