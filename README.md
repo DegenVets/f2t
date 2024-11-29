@@ -225,7 +225,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- [Twitter](https://twitter.com/f2t_io)
+- [X](https://twitter.com/f2t_app)
 - Email: support@f2t.io
 
 ---
