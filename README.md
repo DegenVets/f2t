@@ -2,119 +2,186 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Solana CLI: v2.0.16](https://img.shields.io/badge/Solana%20CLI-v2.0.16-blue)](https://docs.solana.com/cli)
+[![Rust: v1.75+](https://img.shields.io/badge/Rust-v1.75%2B-orange)](https://www.rust-lang.org/)
 
-A blockchain-driven marketplace ecosystem that revolutionizes local food commerce through dynamic NFT-based access control and farm share management.
+A decentralized marketplace revolutionizing local food commerce through blockchain-based farm shares, NFT-driven access control, and automated regulatory compliance.
 
 ## 🌟 Features
 
 ### Core Technologies
-- 🔗 **Blockchain Integration** - Smart contracts for farm share management and compliance automation
-- 🎫 **Dynamic NFTs** - Role-based access tokens with real-time attribute updates
-- ☁️ **AWS RBAC/ABAC** - Hybrid access control system leveraging NFT attributes
-- 📍 **Geolocation Services** - Proximity-based compliance enforcement
-- 🔐 **Smart Contracts** - Automated compliance and transaction validation
+- 🔗 **Solana Smart Contracts** - Rust-based programs for farm share and compliance management
+- 🎫 **Dynamic NFTs** - Metaplex-powered role and attribute management
+- 🗃️ **NFT.storage** - Decentralized content storage with IPFS
+- 🌐 **Yew Framework** - Rust-based WebAssembly frontend
+- ⚡ **Serverless Rust** - AWS Lambda functions with custom runtime
 
 ### Key Components
-- **NFT-Based Access Control** - Dynamic attribute management for roles and permissions
-- **Farm Share Framework** - Legal structure for regulated goods distribution
-- **Compliance Automation** - Real-time verification of regulatory requirements
-- **Audit Trail** - Immutable transaction records for regulatory oversight
+- **Decentralized Storage** - IPFS-based permanent data availability
+- **Farm Share Framework** - Legal structure enabling interstate commerce
+- **Compliance Automation** - Real-time verification with NFT attributes
+- **Zero-Trust Security** - Blockchain-verified access control
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js v18+
-- AWS CLI configured
-- Blockchain wallet (MetaMask recommended)
-
-### Quick Start
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/f2t.io.git
+# Required versions
+rustc 1.75.0 or higher
+cargo 1.75.0 or higher
+solana-cli 2.0.16
+```
 
-# Install dependencies
+### Environment Setup
+```bash
+# Install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Install Solana CLI
+sh -c "$(curl -sSfL https://release.solana.com/v2.0.16/install)"
+
+# Install WebAssembly tools
+cargo install wasm-pack
+cargo install trunk
+rustup target add wasm32-unknown-unknown
+```
+
+### Development Setup
+```bash
+# Clone repository
+git clone https://github.com/yourusername/f2t.io.git
 cd f2t.io
-npm install
+
+# Install workspace dependencies
+cargo build
 
 # Configure environment
 cp .env.example .env
-# Edit .env with your credentials
+# Edit .env with your configurations
 
-# Run development server
-npm run dev
+# Start development server
+trunk serve
+```
+
+## 🏗️ Project Structure
+
+```
+f2t.io/
+├── programs/               # Solana smart contracts
+│   ├── farm_share/        # Farm share program
+│   └── access_control/    # NFT access control
+├── app/                   # Yew WebAssembly frontend
+│   ├── src/              # Frontend source code
+│   └── Cargo.toml        # Frontend dependencies
+├── lambda/               # Serverless functions
+│   ├── src/             # Lambda handlers
+│   └── Cargo.toml       # Lambda dependencies
+└── lib/                 # Shared Rust libraries
+```
+
+## 🔧 Development
+
+### Smart Contract Development
+```bash
+# Build Solana programs
+cargo build-bpf
+
+# Run tests
+cargo test-bpf
+
+# Deploy program
+solana program deploy target/deploy/farm_share.so
+```
+
+### Frontend Development
+```bash
+# Start Yew development server
+trunk serve
+
+# Build for production
+trunk build --release
+```
+
+### Lambda Development
+```bash
+# Build Lambda functions
+cargo lambda build
+
+# Test locally
+cargo lambda watch
+
+# Deploy
+cargo lambda deploy
+```
+
+### Local Development Dependencies
+```toml
+[workspace]
+members = [
+    "app",
+    "programs/*",
+    "lambda",
+    "lib"
+]
+
+[workspace.dependencies]
+yew = "0.21"
+wasm-bindgen = "0.2"
+solana-program = "1.17"
+anchor-lang = "0.28"
 ```
 
 ## 📖 Documentation
 
 - [System Architecture](./docs/architecture.md)
-- [Access Control Specification](./docs/accessControlSystem.md)
-- [Smart Contract Documentation](./docs/smartContracts.md)
-- [AWS Integration Guide](./docs/awsIntegration.md)
+- [Access Control](./docs/accessControlSystem.md)
+- [Smart Contracts](./docs/smartContracts.md)
+- [AWS Integration](./docs/awsIntegration.md)
 - [API Reference](./docs/apiReference.md)
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on:
-- Code of Conduct
-- Development process
-- Pull request guidelines
-- Community guidelines
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🔗 Links
-
-- [Website](https://f2t.io)
-- [Documentation](https://docs.f2t.io)
-- [White Paper](https://f2t.io/whitepaper)
-
-## 🏗️ Project Status
-
-Field 2 Table is currently in active development. Key milestones:
-
-- [x] Core architecture design
-- [x] NFT access control implementation
-- [x] AWS RBAC/ABAC integration
-- [ ] Smart contract auditing
-- [ ] Beta testing
-- [ ] Production deployment
-
-## 🙏 Acknowledgments
-
-Special thanks to:
-- Local food producers who provided invaluable insights
-- Regulatory experts who helped shape compliance features
-- Open source projects that made this possible
 
 ## 📊 Technical Architecture
 
 ```mermaid
 graph TB
-    A[User Interface] --> B[API Layer]
-    B --> C[Blockchain Layer]
-    B --> D[AWS Services]
-    C --> E[Smart Contracts]
-    D --> F[Access Control]
-    D --> G[Data Storage]
+    subgraph "Frontend"
+        A[Yew WebAssembly]
+        B[Solana Wallet]
+    end
+    
+    subgraph "Storage"
+        C[NFT.storage]
+        D[IPFS]
+    end
+    
+    subgraph "Blockchain"
+        E[Solana Programs]
+        F[NFT Metadata]
+    end
+    
+    subgraph "Serverless"
+        G[Rust Lambda]
+        H[DynamoDB Index]
+    end
+    
+    A --> C
+    A --> E
+    C --> D
+    E --> F
+    G --> H
+    G --> D
 ```
 
-## 💡 Core Concepts
+## 🤝 Contributing
 
-### Dynamic NFT Access Control
-NFTs serve as dynamic attribute carriers, enabling:
-- Real-time permission updates
-- Compliance status tracking
-- Geographic restriction enforcement
-- Transaction limit management
+See our [Contributing Guide](CONTRIBUTING.md) for:
+- Development workflow
+- Code standards
+- Testing requirements
+- Documentation guidelines
 
-### Farm Share Framework
-Legal structure allowing:
-- Cross-border commerce
-- Regulated goods distribution
-- Compliance automation
-- Transparent ownership tracking
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 📞 Contact
 
@@ -122,4 +189,4 @@ Legal structure allowing:
 - Email: support@f2t.io
 
 ---
-Built with ❤️ for local food communities
+Built with 🦀 Rust and ❤️ for local food communities
