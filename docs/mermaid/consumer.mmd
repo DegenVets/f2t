@@ -1,22 +1,32 @@
 sequenceDiagram
     participant C as Consumer
-    participant F as f2t.io Platform
-    participant B as Blockchain
+    participant F as Frontend (Yew)
+    participant S as NFT.storage
+    participant I as IPFS
+    participant B as Solana Chain
     participant P as Producer
-    participant AWS as AWS Backend
     
     C->>F: Purchase farm share
-    F->>AWS: Verify eligibility
-    AWS-->>F: Eligibility confirmed
-    F->>B: Mint share NFT
+    F->>B: Verify consumer NFT
+    B-->>F: NFT verified
+    F->>S: Fetch share details
+    S->>I: Retrieve data
+    I-->>S: Return data
+    S-->>F: Share details
+    F->>B: Execute purchase
+    B->>B: Mint share NFT
     B-->>F: Share NFT minted
-    F->>C: Confirm ownership
+    F-->>C: Confirm ownership
     
     Note over C,P: Share NFT contains:<br/>- Ownership percentage<br/>- Product entitlements<br/>- Duration/terms<br/>- Geographic restrictions
     
     C->>F: Request product access
-    F->>B: Verify share ownership
+    F->>B: Verify share NFT
     B-->>F: Ownership verified
+    F->>S: Fetch product details
+    S-->>F: Product data
     F->>P: Notify product request
     P->>F: Confirm availability
-    F->>C: Grant product access
+    F->>B: Record access grant
+    B-->>F: Access recorded
+    F-->>C: Grant product access

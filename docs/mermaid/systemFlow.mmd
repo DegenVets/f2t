@@ -1,31 +1,28 @@
 sequenceDiagram
-    participant User
-    participant Frontend as Yew WebAssembly
-    participant NFTStorage as NFT.storage
-    participant IPFS as IPFS Network
-    participant Blockchain as Solana Chain
-    participant Lambda as Rust Lambda
-    participant Index as DynamoDB Index
+    participant U as User
+    participant F as Frontend (Yew)
+    participant S as NFT.storage
+    participant I as IPFS
+    participant B as Solana Chain
+    participant L as Rust Lambda
     
-    User->>Frontend: Upload Content
-    Frontend->>NFTStorage: Store Content
-    NFTStorage->>IPFS: Persist Data
-    IPFS-->>NFTStorage: Return CID
-    NFTStorage-->>Frontend: Content Location
+    Note over U,L: Content Storage Flow
+    U->>F: Upload Content
+    F->>S: Store Content
+    S->>I: Persist Data
+    I-->>S: Return CID
+    S-->>F: Content Location
+    F->>B: Record CID & Metadata
+    B-->>F: Transaction Confirmed
+    F->>L: Index Reference
+    L-->>F: Indexing Complete
     
-    Frontend->>Blockchain: Record CID & Metadata
-    Blockchain-->>Frontend: Transaction Confirmed
-    
-    Frontend->>Lambda: Index Request
-    Lambda->>Index: Store Reference
-    Index-->>Lambda: Confirm Storage
-    Lambda-->>Frontend: Index Complete
-    
-    Note over Frontend,IPFS: Content Retrieval Flow
-    
-    User->>Frontend: Request Content
-    Frontend->>Blockchain: Verify Access
-    Blockchain-->>Frontend: Access Confirmed
-    Frontend->>IPFS: Fetch Content (CID)
-    IPFS-->>Frontend: Return Content
-    Frontend-->>User: Display Content
+    Note over U,L: Content Retrieval Flow
+    U->>F: Request Content
+    F->>B: Verify NFT Access
+    B-->>F: Access Confirmed
+    F->>S: Request Content
+    S->>I: Fetch Data (CID)
+    I-->>S: Return Data
+    S-->>F: Content Data
+    F-->>U: Display Content
