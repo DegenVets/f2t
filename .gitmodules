@@ -1,0 +1,3 @@
+[submodule "FlexnetGX"]
+	path = FlexnetGX
+	url = git@github.com:DegenVets/f2t_logic.git
