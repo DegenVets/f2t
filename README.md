@@ -145,17 +145,30 @@ cargo lambda deploy
 ```toml
 [workspace]
 members = [
-    "app",
-    "programs/*",
-    "lambda",
+    "GX-mobile",
+    "GX-web",
+    "GX-lambda",
+    "GX-blockchain/*",
     "lib"
 ]
 
 [workspace.dependencies]
+# Web and Mobile Frontend
 yew = "0.21"
 wasm-bindgen = "0.2"
+
+# Blockchain
 solana-program = "1.17"
 anchor-lang = "0.28"
+
+# Serverless Functions
+aws-lambda-events = "0.5"
+lambda-runtime = "0.6"
+
+# Shared Libraries
+serde = { version = "1.0", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+
 ```
 
 ## 📖 Documentation
