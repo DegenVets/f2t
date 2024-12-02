@@ -185,5 +185,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 Built with 🦀 Rust and ❤️ for local food communities.
 ```
-
----
