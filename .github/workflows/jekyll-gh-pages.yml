@@ -28,16 +28,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Copy static files
+              - name: Copy static files
         run: |
           mkdir -p _site
           cp -r GX-web/src/static/* _site/
-      - name: Upload build artifacts
-        uses: actions/upload-pages-artifact@v3
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
         with:
-          path: ./_site
+          source: ./GX-web/src/static
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
   # Deployment job
   deploy:
