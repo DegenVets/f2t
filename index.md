@@ -1,3 +1,10 @@
+```markdown
+---
+title: Field 2 Table | Decentralized Marketplace
+description: Revolutionizing local food commerce with blockchain-based farm shares and NFT-driven access control.
+layout: default
+---
+
 # f2t_logic
 # Field 2 Table (f2t.io)
 
@@ -7,6 +14,8 @@
 [![Rust: v1.75+](https://img.shields.io/badge/Rust-v1.75%2B-orange)](https://www.rust-lang.org/)
 
 A decentralized marketplace revolutionizing local food commerce through blockchain-based farm shares, NFT-driven access control, and automated regulatory compliance.
+
+---
 
 ## 🌟 Features
 
@@ -22,6 +31,8 @@ A decentralized marketplace revolutionizing local food commerce through blockcha
 - **Farm Share Framework** - Legal structure enabling interstate commerce
 - **Compliance Automation** - Real-time verification with NFT attributes
 - **Zero-Trust Security** - Blockchain-verified access control
+
+---
 
 ## 🚀 Getting Started
 
@@ -64,112 +75,51 @@ cp .env.example .env
 trunk serve
 ```
 
+---
+
 ## 🏗️ Project Structure
 
 ```
 FlexnetGX/
 ├── GX-mobile/             # Mobile application development
-│   ├── src/               # Mobile app source code
-│   └── Cargo.toml         # Mobile dependencies
 ├── GX-web/                # Web application frontend
-│   ├── src/               # Frontend source code (Yew WebAssembly)
-│   └── Cargo.toml         # Frontend dependencies
 ├── GX-lambda/             # Serverless functions for backend
-│   ├── src/               # Lambda function handlers
-│   └── Cargo.toml         # Lambda dependencies
 ├── GX-blockchain/         # Blockchain programs
-│   ├── farm_share/        # Solana program for farm shares
-│   ├── access_control/    # NFT-based access control
-│   └── Cargo.toml         # Blockchain dependencies
 └── lib/                   # Shared Rust libraries
-    ├── src/               # Common reusable code
-    └── Cargo.toml         # Library dependencies
 ```
 
+### Categories:
+1. **GX-mobile**: Cross-platform mobile app for consumers and producers.  
+2. **GX-web**: WebAssembly-based frontend using Yew.  
+3. **GX-lambda**: AWS serverless backend for compliance and APIs.  
+4. **GX-blockchain**: Solana smart contracts for farm shares and access control.  
+5. **lib**: Shared Rust libraries for reuse.
+
 ---
-
-### Description of Categories:
-1. **GX-mobile**:  
-   - Mobile application for consumers and producers, likely built using a cross-platform Rust framework or native tools.  
-
-2. **GX-web**:  
-   - Web-based frontend application using the Yew framework with WebAssembly.  
-
-3. **GX-lambda**:  
-   - Serverless backend services hosted on AWS Lambda, handling APIs, compliance logic, and off-chain operations.  
-
-4. **GX-blockchain**:  
-   - Solana smart contracts for farm share management, access control, and compliance verification.  
-
-5. **lib**:  
-   - Shared libraries for common functionalities across `GX-mobile`, `GX-web`, and `GX-lambda`.
-
-
 
 ## 🔧 Development
 
 ### Smart Contract Development
 ```bash
-# Build Solana programs
 cargo build-bpf
-
-# Run tests
 cargo test-bpf
-
-# Deploy program
 solana program deploy target/deploy/farm_share.so
 ```
 
 ### Frontend Development
 ```bash
-# Start Yew development server
 trunk serve
-
-# Build for production
 trunk build --release
 ```
 
 ### Lambda Development
 ```bash
-# Build Lambda functions
 cargo lambda build
-
-# Test locally
 cargo lambda watch
-
-# Deploy
 cargo lambda deploy
 ```
 
-### Local Development Dependencies
-```toml
-[workspace]
-members = [
-    "GX-mobile",
-    "GX-web",
-    "GX-lambda",
-    "GX-blockchain/*",
-    "lib"
-]
-
-[workspace.dependencies]
-# Web and Mobile Frontend
-yew = "0.21"
-wasm-bindgen = "0.2"
-
-# Blockchain
-solana-program = "1.17"
-anchor-lang = "0.28"
-
-# Serverless Functions
-aws-lambda-events = "0.5"
-lambda-runtime = "0.6"
-
-# Shared Libraries
-serde = { version = "1.0", features = ["derive"] }
-tokio = { version = "1", features = ["full"] }
-
-```
+---
 
 ## 📖 Documentation
 
@@ -178,6 +128,8 @@ tokio = { version = "1", features = ["full"] }
 - [Smart Contracts](./docs/smartContracts.md)
 - [AWS Integration](./docs/awsIntegration.md)
 - [API Reference](./docs/apiReference.md)
+
+---
 
 ## 📊 Technical Architecture
 
@@ -211,22 +163,27 @@ graph TB
     G --> D
 ```
 
+---
+
 ## 🤝 Contributing
 
-See our [Contributing Guide](CONTRIBUTING.md) for:
-- Development workflow
-- Code standards
-- Testing requirements
-- Documentation guidelines
+See our [Contributing Guide](CONTRIBUTING.md) for development standards and testing.
+
+---
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
 
 ## 📞 Contact
 
-- [X](https://twitter.com/f2t_app)
+- [Twitter](https://twitter.com/f2t_app)
 - Email: support@f2t.io
 
 ---
-Built with 🦀 Rust and ❤️ for local food communities
+Built with 🦀 Rust and ❤️ for local food communities.
+```
+
+---
