@@ -1,11 +1,3 @@
-```markdown
----
-title: Field 2 Table | Decentralized Marketplace
-description: Revolutionizing local food commerce with blockchain-based farm shares and NFT-driven access control.
-layout: default
----
-
-# f2t_logic
 # Field 2 Table (f2t.io)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -31,6 +23,16 @@ A decentralized marketplace revolutionizing local food commerce through blockcha
 - **Farm Share Framework** - Legal structure enabling interstate commerce
 - **Compliance Automation** - Real-time verification with NFT attributes
 - **Zero-Trust Security** - Blockchain-verified access control
+
+---
+
+## 📖 Documentation
+
+- [System Architecture](./docs/architecture.md)
+- [Access Control](./docs/accessControlSystem.md)
+- [Smart Contracts](./docs/smartContracts.md)
+- [AWS Integration](./docs/awsIntegration.md)
+- [API Reference](./docs/apiReference.md)
 
 ---
 
@@ -118,18 +120,6 @@ cargo lambda build
 cargo lambda watch
 cargo lambda deploy
 ```
-
----
-
-## 📖 Documentation
-
-- [System Architecture](./docs/architecture.md)
-- [Access Control](./docs/accessControlSystem.md)
-- [Smart Contracts](./docs/smartContracts.md)
-- [AWS Integration](./docs/awsIntegration.md)
-- [API Reference](./docs/apiReference.md)
-
----
 
 ## 📊 Technical Architecture
 
