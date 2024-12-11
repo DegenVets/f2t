@@ -129,18 +129,28 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = !(isFirstNameValid && isLastNameValid && isEmailValid && isPhoneValid && isMessageValid);
     };
 
-    // Glitch effect for text
-    const glitchEffect = (element) => {
-        setInterval(() => {
-            const randomX = Math.random() * 4 - 2;
-            const randomY = Math.random() * 4 - 2;
-            element.style.textShadow = `
-                ${randomX}px ${randomY}px #eaec71,
-                ${-randomX}px ${-randomY}px #eaec71`;
-        }, 100);
+    const waveText = document.getElementById('wave-text');
+
+    // Function to run the wave animation
+    const runWaveAnimation = () => {
+        anime({
+            targets: '#wave-text',
+            translateY: [
+                { value: -5, duration: 500 },
+                { value: 5, duration: 500 }
+            ],
+            easing: 'easeInOutSine',
+            loop: false, // Do not loop for hover and load
+        });
     };
 
-    document.querySelectorAll('h1').forEach(glitchEffect);
+    // Run the animation once on page load
+    runWaveAnimation();
+
+        // Add hover listener to run the animation
+        waveText.addEventListener('mouseenter', () => {
+            runWaveAnimation();
+        });
 
     // Add real-time validation listeners
     [firstNameInput, lastNameInput, emailInput, messageInput, countryCodeInput].forEach(input => {

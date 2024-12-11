@@ -111,9 +111,11 @@ h1, h2 {
     margin: 60px auto;
 }
 
-.chalkboard-text {
-    font-size: 2em;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+#wave-text {
+    font-family: 'Caveat', cursive;
+    font-size: 2.5em;
+    color: #eaec71;
+    display: inline-block;
 }
 
 #about {
