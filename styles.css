@@ -121,6 +121,7 @@ h1, h2 {
 #about ul {
     list-style-type: none;
     padding: 0;
+    color: #eaec71;
 }
 
 #about li {
