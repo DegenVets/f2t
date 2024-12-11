@@ -135,12 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const randomX = Math.random() * 4 - 2;
             const randomY = Math.random() * 4 - 2;
             element.style.textShadow = `
-                ${randomX}px ${randomY}px #f4a32f,
-                ${-randomX}px ${-randomY}px #88c057`;
+                ${randomX}px ${randomY}px #eaec71,
+                ${-randomX}px ${-randomY}px #eaec71`;
         }, 100);
     };
 
-    document.querySelectorAll('h1, h2').forEach(glitchEffect);
+    document.querySelectorAll('h1').forEach(glitchEffect);
 
     // Add real-time validation listeners
     [firstNameInput, lastNameInput, emailInput, messageInput, countryCodeInput].forEach(input => {
