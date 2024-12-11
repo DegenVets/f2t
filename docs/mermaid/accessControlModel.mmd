@@ -1,0 +1,83 @@
+graph TB
+    subgraph NFT_Layer["NFT Access Layer"]
+        P_NFT[Producer NFT]
+        C_NFT[Consumer NFT]
+        A_NFT[Auditor NFT]
+        S_NFT[Share NFT]
+    end
+
+    subgraph Attributes["Dynamic Attributes"]
+        Role[Role]
+        Compliance[Compliance Status]
+        Geo[Geographic Bounds]
+        Limits[Transaction Limits]
+        Time[Time Restrictions]
+    end
+
+    subgraph Programs["Solana Programs"]
+        Access[Access Control Program]
+        Verify[Verification Program]
+        Share[Share Management]
+        Distribute[Distribution Control]
+    end
+
+    subgraph Actions["Permitted Actions"]
+        Create[Create Shares]
+        Purchase[Purchase Shares]
+        Transfer[Transfer Shares]
+        Audit[Audit Records]
+    end
+
+    %% NFT connections to attributes
+    P_NFT --> Role
+    P_NFT --> Compliance
+    P_NFT --> Geo
+    P_NFT --> Limits
+    
+    C_NFT --> Role
+    C_NFT --> Geo
+    
+    A_NFT --> Role
+    A_NFT --> Geo
+    
+    S_NFT --> Limits
+    S_NFT --> Time
+
+    %% Program validations
+    Access --> Role
+    Access --> Compliance
+    
+    Verify --> Geo
+    Verify --> Limits
+    
+    Share --> Time
+    Share --> Limits
+    
+    Distribute --> Compliance
+    Distribute --> Geo
+
+    %% Action permissions
+    Role --> Create
+    Role --> Purchase
+    Role --> Transfer
+    Role --> Audit
+    
+    Compliance --> Create
+    Compliance --> Purchase
+    
+    Geo --> Purchase
+    Geo --> Transfer
+    
+    Limits --> Create
+    Limits --> Purchase
+
+    %% Styling
+    classDef nft fill:#f9f,stroke:#333,stroke-width:2px
+    classDef attr fill:#bbf,stroke:#333,stroke-width:2px
+    classDef prog fill:#bfb,stroke:#333,stroke-width:2px
+    classDef action fill:#fbb,stroke:#333,stroke-width:2px
+
+    class P_NFT,C_NFT,A_NFT,S_NFT nft
+    class Role,Compliance,Geo,Limits,Time attr
+    class Access,Verify,Share,Distribute prog
+    class Create,Purchase,Transfer,Audit action

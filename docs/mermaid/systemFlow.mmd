@@ -1,0 +1,28 @@
+sequenceDiagram
+    participant U as User
+    participant F as Frontend (Yew)
+    participant S as NFT.storage
+    participant I as IPFS
+    participant B as Solana Chain
+    participant L as Rust Lambda
+    
+    Note over U,L: Content Storage Flow
+    U->>F: Upload Content
+    F->>S: Store Content
+    S->>I: Persist Data
+    I-->>S: Return CID
+    S-->>F: Content Location
+    F->>B: Record CID & Metadata
+    B-->>F: Transaction Confirmed
+    F->>L: Index Reference
+    L-->>F: Indexing Complete
+    
+    Note over U,L: Content Retrieval Flow
+    U->>F: Request Content
+    F->>B: Verify NFT Access
+    B-->>F: Access Confirmed
+    F->>S: Request Content
+    S->>I: Fetch Data (CID)
+    I-->>S: Return Data
+    S-->>F: Content Data
+    F-->>U: Display Content

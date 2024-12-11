@@ -1,0 +1,26 @@
+sequenceDiagram
+    participant P as Producer
+    participant F as Frontend (Yew)
+    participant S as NFT.storage
+    participant I as IPFS
+    participant B as Solana Chain
+    participant R as Regulator
+    
+    P->>F: Log distribution
+    F->>S: Store distribution record
+    S->>I: Persist record
+    I-->>S: Return CID
+    F->>B: Record transaction
+    B->>B: Update share state
+    
+    Note over P,R: Transaction record includes:<br/>- Product details<br/>- Compliance checks<br/>- Geographic validation<br/>- Share verification
+    
+    R->>F: Request audit trail
+    F->>B: Verify regulator NFT
+    B-->>F: NFT verified
+    F->>B: Fetch transactions
+    B-->>F: Transaction records
+    F->>S: Fetch distribution details
+    S->>I: Retrieve data
+    I-->>S: Return records
+    F->>R: Display audit data

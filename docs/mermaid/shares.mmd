@@ -1,0 +1,26 @@
+sequenceDiagram
+    participant C1 as Consumer 1
+    participant F as Frontend (Yew)
+    participant S as NFT.storage
+    participant I as IPFS
+    participant B as Solana Chain
+    participant C2 as Consumer 2
+    
+    C1->>F: Request share transfer
+    F->>B: Verify share NFT
+    B-->>F: Ownership confirmed
+    F->>S: Fetch share details
+    S->>I: Retrieve data
+    I-->>S: Return data
+    F->>B: Verify transfer eligibility
+    B-->>F: Transfer allowed
+    
+    C1->>F: Initiate transfer to C2
+    F->>B: Update share NFT owner
+    B->>B: Transfer NFT
+    B-->>F: Transfer complete
+    F->>S: Update share records
+    S->>I: Store updated data
+    F-->>C2: Confirm ownership
+    
+    Note over C1,C2: Transfer updates:<br/>- NFT ownership<br/>- Access permissions<br/>- Geographic validation<br/>- Compliance status
