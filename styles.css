@@ -112,7 +112,7 @@ h1, h2 {
 }
 
 #about {
-    background-color: #886c0588; 
+    background-color: #886c053f; 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px #88c057, 0 0 30px #88c057; 
@@ -125,7 +125,7 @@ h1, h2 {
 
 #about li {
     margin: 10px 0;
-    color: #9ff56e;
+    color: #eaec71;
 }
 
 form {
