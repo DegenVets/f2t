@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F2T.io | Field 2 Table</title>
+    <link rel="stylesheet" href="dev/GX-web/src/css/_main.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#home">
+                    <img src="https://pbs.twimg.com/profile_images/1763321955283861504/9b5o7PNt_400x400.jpg" alt="F2t.io">
+                </a>
+                <h1>F2T.io</h1>
+            </div>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="../app.html">Marketplace</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="container">
+            <div class="graphic">
+                <img src="https://pbs.twimg.com/profile_images/1763321955283861504/9b5o7PNt_400x400.jpg" alt="F2T.io powered by DevCorp">
+            </div>
+            <div class="hero">
+                <h2>Connecting Local Producers with Consumers</h2>
+                <h3>Experience a transparent, scalable, and legally compliant ecosystem for local food distribution.</h3>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <div class="content">
+                <h2>About Field 2 Table</h2>
+                <p>Field 2 Table (f2t.io) is a decentralized marketplace designed to connect local food producers with consumers while ensuring compliance with regulations such as Cottage Food Laws. By integrating blockchain solutions for farm shares, we enable producers to sell regulated goods and facilitate out-of-state sales by legally restructuring the transaction model.</p>
+                <a href="#contact" class="cta-button">Join the Waitlist</a>
+                <h2>Our Features</h2>
+                <p>Blockchain Transparency: Immutable records ensuring compliance and trust.</p>
+                <p>NFT-Based Access Control: Dynamic user attributes for decentralized identity management.</p>
+                <p>Scalable Infrastructure: Utilizing AWS RBAC/ABAC for secure access management.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>Join the Waitlist</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                    <span id="firstnameError" class="error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                    <span id="lastnameError" class="error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <span id="emailError" class="error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <div class="phone-input">
+                        <select id="countryCode" name="countryCode">
+                            <option value="+1">+1 (US/Canada)</option>
+                            <option value="+44">+44 (UK)</option>
+                            <option value="+91">+91 (India)</option>
+                        </select>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <span id="phoneError" class="error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <span id="messageError" class="error"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" id="submitBtn" value="Send Message" disabled>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Powered by DevCorp.org | All rights reserved.<br><a href="#policy">Privacy Policy</a> © 2024 Field 2 Table.</p>
+    </footer>
+
+    <script src="dev/GX-web/src/js/_main.js"></script>
+</body>
+</html>
