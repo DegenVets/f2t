@@ -98,7 +98,6 @@ h1, h2 {
     display: flex;
     list-style-type: none;
     margin: 0;
-    padding: 0;
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -106,6 +105,7 @@ h1, h2 {
 .menu li {
     display: flex;
     align-items: center;
+    margin-bottom: 0.5rem;
 }
 
 .menu a {
