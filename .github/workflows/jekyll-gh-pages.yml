@@ -43,7 +43,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-      - uses: actions/deploy-pages@v4
-        with:
-          target_branch: gh-pages
-          publish_dir: ./_site
+        uses: actions/deploy-pages@v4
