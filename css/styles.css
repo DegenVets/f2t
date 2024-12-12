@@ -27,9 +27,12 @@ header {
 
 nav {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     justify-content: space-between;
+    margin: 0 auto;
 }
 
 .logo {
@@ -95,10 +98,12 @@ h1, h2 {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap;
 }
 
 .menu li {
-    margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .menu a {
@@ -106,6 +111,8 @@ h1, h2 {
     text-decoration: none;
     text-shadow: 0 0 5px #88c057;
     transition: color 0.3s ease, text-shadow 0.3s ease;
+    padding: 0.5rem;
+    white-space: nowrap;
 }
 
 .menu a:hover {
