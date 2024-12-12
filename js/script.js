@@ -260,4 +260,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     validateForm();
+
 });
