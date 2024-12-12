@@ -71,22 +71,28 @@ document.addEventListener('DOMContentLoaded', () => {
     
     startSeasonAnimation();
     
-
     function showWhitepaper(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent the default anchor behavior
+        console.log("Whitepaper button clicked");
         window.open("./static/whitepaper.html", "Whitepaper", "width=800,height=600");
-    }
-  
-    function showDev(event) {
-        event.preventDefault();
-        window.open("https://github.com/DegenVets/f2t/blob/gh-pages/docs/README.md", 
-                    "DevDocs", "width=800,height=600");
+        document.getElementById('whitepaper').scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the section
     }
     
-    function showPolicy() {
+    function showDev(event) {
         event.preventDefault();
-        window.open("policy.html", "policy", "width=800,height=600"); 
-      }
+        console.log("Dev Docs button clicked");
+        window.open("https://github.com/DegenVets/f2t/blob/gh-pages/docs/README.md", 
+                    "DevDocs", "width=800,height=600");
+        document.getElementById('dev').scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the section
+    }
+    
+    function showPolicy(event) {
+        event.preventDefault();
+        console.log("Policy button clicked");
+        window.open("./static/policy.html", "policy", "width=800,height=600"); 
+        document.getElementById('policy').scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the section
+    }
+        
 
     const firstNameError = document.getElementById('firstnameError');
     const lastNameError = document.getElementById('lastnameError');

@@ -26,10 +26,6 @@ Legal Barriers: Direct sale of regulated goods like raw milk or meat products is
 Consumer Trust: Lack of transparency in farm share programs can deter consumers.
 Complex Recordkeeping: Managing and tracking farm share agreements can be labor-intensive and prone to errors.
 
-**Proposed Solution: Blockchain-Based Farm Shares**
-By issuing digital proof of ownership via NFTs, f2t.io enables producers to sell farm shares that comply with legal frameworks for regulated goods and out-of-state transactions. Blockchain ensures transparency, traceability, and legal compliance while simplifying farm share management.
-
-
 ---
 
 #### **Proposed Solution: Blockchain-Based Farm Shares**

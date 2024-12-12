@@ -3,116 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>White Paper - Field 2 Table (f2t.io)</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <title>Field 2 Table (f2t.io) - White Paper</title>
 </head>
 <body>
     <h1>White Paper for <strong>Field 2 Table (f2t.io)</strong></h1>
     <h2>A Blockchain-Driven Marketplace Ecosystem with Dynamic NFT Access Control</h2>
 
-    <div class="section intro">
-        <p>Field 2 Table (f2t.io) is a decentralized marketplace designed to connect local food producers with consumers while ensuring compliance with regulations such as Cottage Food Laws. This updated vision incorporates blockchain solutions for farm shares, enabling producers to sell regulated goods and facilitate out-of-state sales by legally restructuring the transaction model. By combining farm share proof on the blockchain with NFTs and AWS-based RBAC/ABAC, f2t.io provides a transparent, scalable, and legally compliant ecosystem.</p>
-    </div>
+    <p><strong>Field 2 Table (f2t.io)</strong> is a decentralized marketplace designed to connect local food producers with consumers while ensuring compliance with regulations such as Cottage Food Laws. This updated vision incorporates blockchain solutions for farm shares, enabling producers to sell regulated goods and facilitate out-of-state sales by legally restructuring the transaction model. By combining farm share proof on the blockchain with NFTs and AWS-based RBAC/ABAC, f2t.io provides a transparent, scalable, and legally compliant ecosystem.</p>
 
-    <div class="section">
-        <h3>Introduction</h3>
-        <p>Out-of-state sales and regulated goods like dairy, meats, and other perishable products are typically restricted under Cottage Food Laws. However, through farm share agreements, producers can legally extend their reach and offerings by allowing consumers to purchase "ownership" in their farm operations. Field 2 Table (f2t.io) integrates blockchain to provide transparent, immutable proof of farm shares, enabling compliance while broadening producer opportunities.</p>
-    </div>
+    <h3>Introduction</h3>
+    <p>Out-of-state sales and regulated goods like dairy, meats, and other perishable products are typically restricted under Cottage Food Laws. However, through farm share agreements, producers can legally extend their reach and offerings by allowing consumers to purchase "ownership" in their farm operations. <strong>Field 2 Table (f2t.io)</strong> integrates blockchain to provide transparent, immutable proof of farm shares, enabling compliance while broadening producer opportunities.</p>
 
-    <div class="section">
-        <h3>Challenges in Current Marketplaces</h3>
+    <h3>Challenges in Current Marketplaces</h3>
+    <ul>
+        <li><strong>Compliance Gaps:</strong> Existing platforms lack mechanisms to enforce location-based sales, transaction limits, and producer compliance.</li>
+        <li><strong>Lack of Transparency:</strong> Consumers cannot verify the origin or compliance of the goods they purchase.</li>
+        <li><strong>Fragmented Access Systems:</strong> Producers and regulators navigate multiple tools, leading to inefficiencies.</li>
+    </ul>
+
+    <p><strong>Field 2 Table (f2t.io)</strong> addresses this gap by:</p>
+    <ul>
+        <li>Employing blockchain for transparency and immutable compliance records.</li>
+        <li>Using NFTs to store dynamic user attributes for decentralized identity and access control.</li>
+        <li>Utilizing AWS RBAC/ABAC for secure, scalable access management.</li>
+    </ul>
+
+    <h3>Challenges in Out-of-State and Regulated Sales</h3>
+    <ul>
+        <li><strong>Legal Barriers:</strong> Direct sale of regulated goods like raw milk or meat products is often restricted across state lines.</li>
+        <li><strong>Consumer Trust:</strong> Lack of transparency in farm share programs can deter consumers.</li>
+        <li><strong>Complex Recordkeeping:</strong> Managing and tracking farm share agreements can be labor-intensive and prone to errors.</li>
+    </ul>
+
+    <h3>Proposed Solution: Blockchain-Based Farm Shares</h3>
+    <p>By issuing digital proof of ownership via NFTs, <strong>f2t.io</strong> enables producers to sell farm shares that comply with legal frameworks for regulated goods and out-of-state transactions. Blockchain ensures transparency, traceability, and legal compliance while simplifying farm share management.</p>
+
+    <h3>How Farm Shares Work in f2t.io</h3>
+    <h4>Ownership Model:</h4>
+    <ul>
+        <li>Consumers purchase a fractional share of a producer’s farm operation.</li>
+        <li>This share entitles them to a proportional amount of the farm’s products (e.g., raw milk, meat).</li>
+    </ul>
+
+    <h4>Blockchain Integration:</h4>
+    <ul>
+        <li>Farm shares are represented as NFTs with encoded attributes:</li>
         <ul>
-            <li><span class="emphasis">Compliance Gaps</span>: Existing platforms lack mechanisms to enforce location-based sales, transaction limits, and producer compliance.</li>
-            <li><span class="emphasis">Lack of Transparency</span>: Consumers cannot verify the origin or compliance of the goods they purchase.</li>
-            <li><span class="emphasis">Fragmented Access Systems</span>: Producers and regulators navigate multiple tools, leading to inefficiencies.</li>
+            <li>Ownership percentage.</li>
+            <li>Entitled product type and quantity.</li>
+            <li>Contract duration.</li>
         </ul>
+    </ul>
 
-        <p><strong>Field 2 Table (f2t.io)</strong> addresses this gap by:</p>
-        <ul>
-            <li>Employing blockchain for transparency and immutable compliance records.</li>
-            <li>Using NFTs to store dynamic user attributes for decentralized identity and access control.</li>
-            <li>Utilizing AWS RBAC/ABAC for secure, scalable access management.</li>
-        </ul>
+    <h4>Out-of-State Sales Framework:</h4>
+    <ul>
+        <li>By legally defining consumers as part-owners of the farm, the transaction bypasses restrictions on direct sales across state lines.</li>
+        <li>Blockchain provides immutable proof of ownership and product entitlement.</li>
+    </ul>
 
-        <h4>Challenges in Out-of-State and Regulated Sales</h4>
-        <ul>
-            <li><span class="emphasis">Legal Barriers</span>: Direct sale of regulated goods like raw milk or meat products is often restricted across state lines.</li>
-            <li><span class="emphasis">Consumer Trust</span>: Lack of transparency in farm share programs can deter consumers.</li>
-            <li><span class="emphasis">Complex Recordkeeping</span>: Managing and tracking farm share agreements can be labor-intensive and prone to errors.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h3>Proposed Solution: Blockchain-Based Farm Shares</h3>
-        <p>By issuing digital proof of ownership via NFTs, f2t.io enables producers to sell farm shares that comply with legal frameworks for regulated goods and out-of-state transactions. Blockchain ensures transparency, traceability, and legal compliance while simplifying farm share management.</p>
-
-        <h4>How Farm Shares Work in f2t.io</h4>
-        <ul>
-            <li><span class="emphasis">Ownership Model</span>: Consumers purchase a fractional share of a producer’s farm operation. This share entitles them to a proportional amount of the farm’s products (e.g., raw milk, meat).</li>
-            <li><span class="emphasis">Blockchain Integration</span>: Farm shares are represented as NFTs with encoded attributes, such as ownership percentage, entitled product type and quantity, and contract duration.</li>
-            <li><span class="emphasis">Out-of-State Sales Framework</span>: By legally defining consumers as part-owners of the farm, the transaction bypasses restrictions on direct sales across state lines. Blockchain provides immutable proof of ownership and product entitlement.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h3>Key Features of Blockchain Farm Shares</h3>
-        <ul>
-            <li><span class="emphasis">NFT-Based Proof of Ownership</span>: Each farm share is minted as an NFT, with metadata encoding ownership details, shareholder rights, and expiration or renewal terms.</li>
-            <li><span class="emphasis">Smart Contracts for Compliance</span>: Enforce ownership rules, renewal schedules, and product distribution. Automate legal agreements and ensure transparency in ownership terms.</li>
-            <li><span class="emphasis">Geolocation Verification</span>: Validate consumer location to ensure compliance with any additional state-specific laws.</li>
-            <li><span class="emphasis">Regulated Goods Distribution</span>: Distribute regulated goods under the farm share framework while providing blockchain-backed proof of compliance.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h3>Field 2 Table (f2t.io): The Solution</h3>
-        <p>Field 2 Table integrates blockchain, NFTs, and AWS infrastructure to create a seamless, transparent, and legally compliant marketplace.</p>
-    </div>
-
-    <div class="section">
-        <h3>Key Features</h3>
-        <ul>
-            <li><strong>NFT-Based Attribute Storage</strong>: Metadata includes role, compliance status, geolocation, transaction caps, and dynamic attributes for real-time compliance.</li>
-            <li><strong>AWS RBAC and ABAC Hybrid</strong>: Combines role-based and attribute-based access control for secure, scalable management.</li>
-            <li><strong>Blockchain-Powered Transparency</strong>: Ensures regulatory compliance with immutable transaction logs and smart contracts.</li>
-            <li><strong>Geolocation Verification</strong>: Confirms buyer and seller proximity to ensure compliance with direct-to-consumer laws.</li>
-            <li><strong>Delivery and Payment Validation</strong>: Uses QR codes or digital signatures for in-person delivery, with logs stored on the blockchain.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h3>How it Works</h3>
-        <h4>Onboarding</h4>
-        <ul>
-            <li>Producers and consumers register on f2t.io.</li>
-            <li>An NFT module layer is minted for each user, encoding their role and attributes.</li>
-        </ul>
-
-        <h4>Transaction Workflow</h4>
-        <ul>
-            <li><span class="emphasis">Step 1</span>: A consumer places an order on the platform.</li>
-            <li><span class="emphasis">Step 2</span>: The system verifies compliance:
+    <h3>Key Features of Blockchain Farm Shares</h3>
+    <ul>
+        <li><strong>NFT-Based Proof of Ownership</strong>
+            <ul>
+                <li>Each farm share is minted as an NFT, with metadata encoding:</li>
                 <ul>
-                    <li>Consumer location matches producer’s allowed region.</li>
-                    <li>Producer’s transaction cap is within limits.</li>
+                    <li>Ownership details.</li>
+                    <li>Shareholder rights (e.g., product access).</li>
+                    <li>Expiration or renewal terms.</li>
                 </ul>
-            </li>
-            <li><span class="emphasis">Step 3</span>: Producer fulfills the order, and the consumer confirms receipt via QR code or digital signature.</li>
-            <li><span class="emphasis">Step 4</span>: The transaction is logged on the blockchain, ensuring transparency and compliance.</li>
-        </ul>
+            </ul>
+        </li>
+        <li><strong>Smart Contracts for Compliance</strong>
+            <ul>
+                <li>Enforce ownership rules, renewal schedules, and product distribution.</li>
+                <li>Automate legal agreements and ensure transparency in ownership terms.</li>
+            </ul>
+        </li>
+        <li><strong>Geolocation Verification</strong>
+            <ul>
+                <li>Validate consumer location to ensure compliance with any additional state-specific laws.</li>
+            </ul>
+        </li>
+        <li><strong>Regulated Goods Distribution</strong>
+            <ul>
+                <li>Distribute regulated goods under the farm share framework while providing blockchain-backed proof of compliance.</li>
+            </ul>
+        </li>
+    </ul>
 
-        <h4>Regulator Oversight</h4>
-        <ul>
-            <li>Regulators access immutable logs via read-only access.</li>
-            <li>NFT attributes ensure that regulators only view data for their jurisdiction.</li>
-        </ul>
-    </div>
+    <h3>Field 2 Table (f2t.io): The Solution</h3>
+    <p><strong>Field 2 Table</strong> integrates blockchain, NFTs, and AWS infrastructure to create a seamless, transparent, and legally compliant marketplace.</p>
 
-    <div class="section">
-        <h3>Enhanced Technology Stack</h3>
-        <ul>
-            <li><span class="emphasis">Blockchain Layer</span>: Solana, Cosmos, or MultiVerseX for smart contracts and NFT minting.</li>
-            <li><span class="emphasis">NFT Infrastructure</span>: Minting and managing dynamic NFTs with metadata that updates via off-chain events (e.g., compliance checks).</li>
-            <li><span class="emphasis">AWS Backend</span>: Combines RBAC for baseline permissions and ABAC for fine-grained control using NFT metadata.</li>
-            <li><span class="emphasis">Geolocation APIs</span>: Ensure location-based compliance.</li>
-            <li
+    <h3>Key Features</h3>
+    <ul>
+        <li><strong>NFT-Based Attribute Storage</strong>
+            <ul>
+                <li>Each producer, consumer, and regulator is issued an NFT upon onboarding.</li>
+                <li><strong>Metadata Includes</strong>:
+                    <ul>
+                        <li>Role: Producer, Consumer, Administrator, Auditor.</li>
+                        <li>Compliance Status: Verified status under Cottage Food Laws.</li>
+                        <li>Geolocation: Legal regions for sales.</li>
+                        <li>Transaction Cap: Annual revenue limits for producers.</li>
+                        <li>Dynamic Attributes: Updated for real-time compliance and contextual access.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><strong>AWS RBAC and ABAC Hybrid</strong>
+            <ul>
+                <li><strong>RBAC</strong>: Defines core roles and their baseline permissions.</li>
+                <li><strong>ABAC</strong>: Leverages NFT metadata as dynamic attributes for fine-grained access control.</li>
+                <ul>
+                    <li>Example:
+                        <ul>
+                            <li>A producer can access their own sales data but cannot exceed transaction caps or modify compliance records.</li>
+                            <li>Consumers can browse products within their geographic region.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+        </li>
+        <li><strong>Blockchain-Powered Transparency</strong>
+            <ul>
+                <li>Immutable transaction logs ensure regulatory compliance and consumer trust.</li>
+                <li>Smart contracts enforce proximity-based transactions and sales limits.</li>
+            </ul>
+        </li>
+        <li><strong>Geolocation Verification</strong>
+            <ul>
+                <li>Confirms the proximity of buyers and sellers, ensuring direct-to-consumer compliance.</li>
+                <li>Automatically restricts access to products outside a legal sales radius.</li>
+            </ul>
+        </li>
+        <li><strong>Delivery and Payment Validation</strong>
+            <ul>
+                <li>QR codes or digital signatures confirm in-person delivery, logged immutably on the blockchain.</li>
+                <li>Supports fiat and cryptocurrency payments for user flexibility.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>How it Works</h3>
+    <h4>Onboarding</h4>
+    <ul>
+        <li>Producers and consumers register on f2t.io.</li>
+        <li>An NFT module layer is minted for each user, encoding their role and attributes.</li>
+    </ul>
+
+    <h4>Transaction Workflow</h4>
+    <ul>
+        <li><strong>Step 1:</strong> A consumer places an order on the platform.</li>
+        <li><strong>Step 2:</strong> The system verifies compliance:
+            <ul>
+                <li>Consumer location matches producer’s allowed region.</li>
+                <li>Producer’s transaction cap is within limits.</li>
+            </ul>
+        </li>
+        <li><strong>Step 3:</strong> Producer fulfills the order, and the consumer confirms receipt via QR code or digital signature.</li>
+        <li><strong>Step 4:</strong> The transaction is logged on the blockchain, ensuring transparency and compliance.</li>
+    </ul>
+
+    <h4>Regulator Oversight</h4>
+    <ul>
+        <li>Regulators access immutable logs via read-only access.</li>
+        <li>NFT attributes ensure that regulators only view data for their jurisdiction.</li>
+    </ul>
+
+    <h3>Enhanced Technology Stack</h3>
+    <ul>
+        <li><strong>Blockchain Layer</strong>
+            <ul>
+                <li><strong>Blockchain:</strong> Solana, Cosmos, or MultiVerseX for smart contracts and NFT minting.</li>
+                <li><strong>Smart Contracts:</strong> Enforce legal restrictions dynamically with Automate compliance checks and enforce share ownership rules.</li>
+            </ul>
+        </li>
+        <li><strong>NFT Infrastructure</strong>
+            <ul>
+                <li>Minting and managing dynamic NFTs with metadata that updates via off-chain events (e.g., compliance checks).</li>
+            </ul>
+        </li>
+        <li><strong>AWS Backend</strong>
+            <ul>
+                <li><strong>RBAC:</strong> Assigns baseline permissions based on roles. Producers, consumers, and regulators interact with the system based on roles and attributes.</li>
+                <li><strong>ABAC:</strong> Uses NFT metadata as session attributes for dynamic, fine-grained access control. Attributes include farm share ownership data stored in NFTs.</li>
+            </ul>
+        </li>
+        <li><strong>Geolocation APIs</strong>
+            <ul>
+                <li>Ensure location-based compliance.</li>
+            </ul>
+        </li>
+        <li><strong>User Interface</strong>
+            <ul>
+                <li>Web and mobile apps provide an intuitive experience while abstracting technical complexity.</li>
+                <li>Consumers view their farm shares and entitled products in a clean, intuitive dashboard.</li>
+                <li>Producers manage shareholder agreements and product distributions seamlessly.</li>
+            </ul>
+        </li>
+        <li><strong>Off-Chain Synchronization</strong>
+            <ul>
+                <li>Updates to share agreements or product deliveries are recorded off-chain but linked to the on-chain NFT metadata.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Workflow for Farm Share Sales</h3>
+    <h4>Onboarding:</h4>
+    <ul>
+        <li>Producers list farm share opportunities (e.g., 100 shares for raw milk access).</li>
+        <li>Consumers purchase shares via fiat or cryptocurrency, minting an NFT representing their ownership.</li>
+    </ul>
+
+    <h4>Proof of Ownership:</h4>
+    <ul>
+        <li>NFT metadata includes ownership details, product entitlements, and compliance terms.</li>
+        <li>Blockchain provides immutable proof of the agreement.</li>
+    </ul>
+
+    <h4>Product Distribution:</h4>
+    <ul>
+        <li>Shareholders receive periodic deliveries or pickups of their entitled products.</li>
+        <li>Producers log deliveries on-chain for transparency and auditability.</li>
+    </ul>
+
+    <h4>Renewals and Transfers:</h4>
+    <ul>
+        <li>Smart contracts handle renewals or allow consumers to transfer their farm shares to others.</li>
+    </ul>
+
+    <h3>Revenue Model</h3>
+    <ul>
+        <li><strong>Transaction Fees:</strong> A percentage fee on each sale and or farm share purchase.</li>
+        <li><strong>Subscription Plans:</strong>
+            <ul>
+                <li>Premium features for producers, such as analytics or priority listing.</li>
+                <li>Producers pay for advanced management tools, such as automated distribution tracking.</li>
+            </ul>
+        </li>
+        <li><strong>Advertising:</strong>
+            <ul>
+                <li>Local businesses can advertise on the platform.</li>
+                <li>Fees on the resale or transfer of farm shares between consumers.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Advantages</h3>
+    <h4>For Producers</h4>
+    <ul>
+        <li>Simplified compliance through automated checks.</li>
+        <li>Wider reach within legal limits.</li>
+        <li>Expand market reach, including out-of-state sales, while staying compliant.</li>
+        <li>Simplify farm share management with automated smart contracts and blockchain records.</li>
+    </ul>
+
+    <h4>For Consumers</h4>
+    <ul>
+        <li>Transparent product origins and compliance.</li>
+        <li>Seamless purchasing experience.</li>
+        <li>Gain access to regulated goods through transparent and legally compliant ownership.</li>
+        <li>View and verify their farm share holdings on an immutable blockchain ledger.</li>
+    </ul>
+
+    <h4>For Regulators</h4>
+    <ul>
+        <li>Immutable blockchain logs for auditing.</li>
+        <li>Fine-grained access control for jurisdictional oversight.</li>
+        <li>Use blockchain for auditing farm share agreements and product distributions.</li>
+        <li>Ensure compliance without the burden of manual recordkeeping.</li>
+    </ul>
+
+    <h3>Implementation Roadmap</h3>
+    <ul>
+        <li><strong>Phase 1:</strong> Develop blockchain and NFT infrastructure.</li>
+        <li><strong>Phase 2:</strong> Build AWS-based backend with RBAC and ABAC integration.</li>
+        <li><strong>Phase 3:</strong> Launch beta in Michigan to test compliance mechanisms.</li>
+        <li><strong>Phase 4:</strong> Expand to other states and adapt for international markets.</li>
+    </ul>
+
+    <h3>Challenges and Mitigation</h3>
+    <ul>
+        <li><strong>Legal Uncertainty</strong>
+            <ul>
+                <li>Engage with regulators early to ensure compliance.</li>
+                <li>Collaborate with legal experts to ensure farm share agreements comply with federal and state laws.</li>
+            </ul>
+        </li>
+        <li><strong>Consumer Adoption</strong>
+            <ul>
+                <li>Educate users about NFTs and blockchain benefits.</li>
+                <li>Provide educational resources on how farm shares work and their legal basis.</li>
+            </ul>
+        </li>
+        <li><strong>Scalability</strong>
+            <ul>
+                <li>Use AWS infrastructure to handle growth while offloading dynamic NFT updates to an efficient off-chain mechanism.</li>
+                <li>Use AWS infrastructure to handle growth and off-chain metadata updates efficiently.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Future Vision</h3>
+    <p><strong>Field 2 Table (f2t.io)</strong> aims to become a global standard for blockchain-enabled local marketplaces. By integrating IoT devices for freshness tracking and machine learning for personalized insights, f2t.io will continually enhance user experience and operational efficiency.</p>
+
+    <p><strong>Field 2 Table (f2t.io)</strong> envisions a comprehensive ecosystem where local producers can seamlessly manage their operations and expand their reach while maintaining transparency and compliance. Blockchain-enabled farm shares represent a pivotal step toward this vision, unlocking new revenue streams and opportunities for producers and consumers alike.</p>
+
+    <p><strong>Field 2 Table (f2t.io)</strong> integrates blockchain, NFTs, and farm share frameworks to redefine how regulated goods and out-of-state sales can be conducted legally. By leveraging decentralized technology for transparency and compliance, the platform creates a trusted, scalable, and consumer-centric solution for the future of local food commerce.</p>
+
+</body>
+</html>
