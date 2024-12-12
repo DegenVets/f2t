@@ -32,7 +32,6 @@ nav {
     justify-content: space-between;
     width: 100%;
     max-width: 1200px;
-    justify-content: space-between;
     margin: 0 auto;
 }
 
@@ -98,14 +97,13 @@ h1, h2 {
     display: flex;
     list-style-type: none;
     margin: 0;
-    gap: 20px;
+    padding: 0;
     flex-wrap: wrap;
 }
 
 .menu li {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
 }
 
 .menu a {
@@ -114,6 +112,7 @@ h1, h2 {
     text-shadow: 0 0 5px #88c057;
     transition: color 0.3s ease, text-shadow 0.3s ease;
     padding: 0.5rem;
+    white-space: nowrap;
 }
 
 .menu a:hover {
