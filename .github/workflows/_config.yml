@@ -1,0 +1,54 @@
+# Site settings
+title: Field 2 Table
+description: "Connecting Local Producers with Consumers"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Theme
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude from build
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - *.gem
+  - *.png
+  - *.jpg
+  - *.gif
+  - *.svg
+  - *.ico
+  - *.map
+  - _config.yml
+  - _config.dev.yml
+  - _deploy
+  - db/
+  - log/
+
+# Collections
+collections:
+  docs:
+    output: true
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
