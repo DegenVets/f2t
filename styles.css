@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #132005, #0b300d, #2c3608, #0b300d, #132005);
+    background: linear-gradient(135deg, #132005, #0b300dd3, #2c3608, #0b300dd3, #132005);
     background-attachment: fixed;
     background-size: cover;
     color: #eaec71;
@@ -40,6 +40,35 @@ nav {
     height: 100%;
     border-radius: 50%;
     animation: pulse 2s infinite;
+}
+
+.falling-item {
+    position: fixed;
+    top: -50px;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: fall 30s linear infinite;
+    z-index: 9999;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.3;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 @keyframes pulse {
@@ -228,6 +257,13 @@ input[type="submit"]:disabled {
     transform: scale(1.1); 
     box-shadow: 0 0 15px #88c057, 0 0 30px #88c057;
 }
+
+iframe {
+    width: 100%;
+    max-width: 900px;
+    height: 900px;
+    border: none;
+  }
 
 footer {
     background-color: #0b300d;

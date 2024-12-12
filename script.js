@@ -7,15 +7,75 @@ document.addEventListener('DOMContentLoaded', () => {
     const phoneInput = document.getElementById('phone');
     const messageInput = document.getElementById('message');
     const submitBtn = document.getElementById('submitBtn');
+    const month = new Date().getMonth(); // 0 = January, 11 = December
+    const isSpring = month >= 2 && month <= 4; // March, April, May
+    const isSummer = month >= 5 && month <= 7; // June, July, August
+    const isFall = month >= 8 && month <= 10; // September, October, November
+    const isWinter = month >= 11 || month <= 1; // December, January, February
+    
+    const createFallingItem = (emoji) => {
+        const item = document.createElement('div');
+        item.textContent = emoji;
+        item.classList.add('falling-item');
+        item.style.left = `${Math.random() * 100}vw`; 
+        item.style.animationDuration = `${Math.random() * 5 + 10}s`;
+        item.style.fontSize = `${Math.random() * 15 + 15}px`; 
+        document.body.appendChild(item);
+    
+        item.addEventListener('animationend', () => {
+            item.remove();
+        });
+    };
+    
+    let fallIntervalId;
+    const startFallAnimation = (item) => {
+        fallIntervalId = setInterval(() => createFallingItem(item), 500);
+    
+        setTimeout(() => {
+            clearInterval(fallIntervalId);
+        }, 15000);
+    };
+    
+    const startSeasonAnimation = () => {
+        if (isSpring) {
+            startFallAnimation('🌸');
+        } else if (isSummer) {
+            startSummerAnimation('☀️'); 
+        } else if (isFall) {
+            startFallAnimation('🍂'); 
+        } else if (isWinter) {
+            startFallAnimation('❄️'); 
+        }
+    };
+    
+    const startSummerAnimation = () => {
+        fallIntervalId = setInterval(() => {
+            const item = document.createElement('div');
+            item.textContent = '☀️';
+            item.classList.add('falling-item');
+            item.style.left = `${Math.random() * 100}vw`;
+            item.style.animationName = 'float'; 
+            item.style.animationDuration = `${Math.random() * 3 + 8}s`; 
+            item.style.fontSize = `${Math.random() * 20 + 20}px`;
+            document.body.appendChild(item);
+    
+            item.addEventListener('animationend', () => {
+                item.remove();
+            });
+        }, 600);
+    
+        setTimeout(() => {
+            clearInterval(fallIntervalId);
+        }, 15000);
+    };
+    
+    startSeasonAnimation();
 
-    // Error message elements
     const firstNameError = document.getElementById('firstnameError');
     const lastNameError = document.getElementById('lastnameError');
     const emailError = document.getElementById('emailError');
     const phoneError = document.getElementById('phoneError');
     const messageError = document.getElementById('messageError');
-
-    // Sanitize user input
     const sanitizeInput = (input) => {
         const sanitized = input
             .replace(/</g, "&lt;")
@@ -25,8 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .replace(/[\r\n]/g, " ");
         return sanitized.trim();
     };
-
-    // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.menu a');
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -42,15 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // Input validation logic
     const validateName = (name) => /^[A-Za-z]{3,}$/.test(name);
     const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     const validatePhone = (phoneNumber) => /^\(\d{3}\) \d{3}-\d{4}$/.test(phoneNumber);
 
     const formatPhoneNumber = (value) => {
-        const cleaned = value.replace(/\D/g, ''); // Remove non-digit characters
-        if (cleaned.length > 10) return value; // Prevent invalid long input
+        const cleaned = value.replace(/\D/g, '');
+        if (cleaned.length > 10) return value;
         const match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,4})$/);
         if (!match) return value;
 
@@ -64,9 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     phoneInput.addEventListener('input', () => {
         const formattedValue = formatPhoneNumber(phoneInput.value);
-        phoneInput.value = formattedValue;
-
-        // Prevent repetitive digits like "1111111111"
+            phoneInput.value = formattedValue;
         const repetitivePattern = /^(\d)\1{9}$/;
         if (repetitivePattern.test(formattedValue.replace(/\D/g, ''))) {
             phoneError.textContent = 'Phone number cannot have repetitive digits';
@@ -76,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             phoneInput.classList.remove('invalid');
         }
 
-        validateForm(); // Trigger form validation
+        validateForm();
     });
 
     const validateField = (input, validator, errorElement, errorMessage) => {
@@ -130,8 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const waveText = document.getElementById('wave-text');
-
-    // Function to run the wave animation
     const runWaveAnimation = () => {
         anime({
             targets: '#wave-text',
@@ -140,19 +192,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 { value: 5, duration: 500 }
             ],
             easing: 'easeInOutSine',
-            loop: false, // Do not loop for hover and load
+            loop: false, 
         });
     };
-
-    // Run the animation once on page load
     runWaveAnimation();
-
-        // Add hover listener to run the animation
         waveText.addEventListener('mouseenter', () => {
             runWaveAnimation();
         });
-
-    // Add real-time validation listeners
     [firstNameInput, lastNameInput, emailInput, messageInput, countryCodeInput].forEach(input => {
         input.addEventListener('input', validateForm);
     });
@@ -190,7 +236,5 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('There was a problem sending your message. Please try again later.');
         }
     });
-
-    // Initial form validation
     validateForm();
 });
