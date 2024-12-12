@@ -23,6 +23,7 @@ exclude:
   - Gemfile.lock
   - node_modules/
   - vendor/
+  - *.gem
   - *.png
   - *.jpg
   - *.gif
@@ -38,7 +39,7 @@ exclude:
 # Collections
 collections:
   docs:
-    output: true
+    output: true 
 
 # Defaults
 defaults:
