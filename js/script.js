@@ -70,6 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     startSeasonAnimation();
+    
+
+    function showWhitepaper(event) {
+        event.preventDefault();
+        window.open("./static/whitepaper.html", "Whitepaper", "width=800,height=600");
+    }
+  
+    function showDev(event) {
+        event.preventDefault();
+        window.open("https://github.com/DegenVets/f2t/blob/gh-pages/docs/README.md", 
+                    "DevDocs", "width=800,height=600");
+    }
+    
+    function showPolicy() {
+        event.preventDefault();
+        window.open("policy.html", "policy", "width=800,height=600"); 
+      }
 
     const firstNameError = document.getElementById('firstnameError');
     const lastNameError = document.getElementById('lastnameError');
