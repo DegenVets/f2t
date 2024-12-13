@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(fallIntervalId);
             interval = Math.max(200, interval - incrementStep); 
             fallIntervalId = createInterval();
-        }, 4000); // Adjust every 4 seconds
+        }, 6000);
     
         // Stop after the total duration
         setTimeout(() => {
