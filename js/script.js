@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         spring: ['🌸', '💐', '🌷'],
         summer: ['☀️', '🍉', '🏖️'],
         fall: ['🍂', '🍁', '🌰'],
-        winter: ['❄️', '☃️', '🧣'],
+        winter: ['❄️', '☃️', '❄️', '🧊'],
     };
     
     const createFallingItem = (emoji) => {
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(fallIntervalId);
             interval = Math.max(200, interval - incrementStep); 
             fallIntervalId = createInterval();
-        }, 3000); // Adjust every 3 seconds
+        }, 4000); // Adjust every 4 seconds
     
         // Stop after the total duration
         setTimeout(() => {
