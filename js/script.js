@@ -8,18 +8,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const messageInput = document.getElementById('message');
     const submitBtn = document.getElementById('submitBtn');
     const month = new Date().getMonth(); // 0 = January, 11 = December
+    const day = new Date().getDate(); // Get the current day
+    
     const isSpring = month >= 2 && month <= 4; // March, April, May
     const isSummer = month >= 5 && month <= 7; // June, July, August
     const isFall = month >= 8 && month <= 10; // September, October, November
     const isWinter = month >= 11 || month <= 1; // December, January, February
     
+    const holidays = {
+        0: { 1: '🎆' }, // New Year's Day in January
+        1: { 14: '❤️' }, // Valentine's Day in February
+        2: { 17: '☘️' }, // St. Patrick's Day in March
+        10: { 31: '🎃' }, // Halloween in October
+        11: { 25: '🎄' }, // Christmas in December
+        11: { 31: '🎆' }, // New Year's Eve in December
+    };
+    
+    const seasonalEmojis = {
+        spring: ['🌸', '💐', '🌷'],
+        summer: ['☀️', '🍉', '🏖️'],
+        fall: ['🍂', '🍁', '🌰'],
+        winter: ['❄️', '☃️', '🧣'],
+    };
+    
     const createFallingItem = (emoji) => {
         const item = document.createElement('div');
         item.textContent = emoji;
         item.classList.add('falling-item');
-        item.style.left = `${Math.random() * 100}vw`; 
+        item.style.left = `${Math.random() * 100}vw`;
         item.style.animationDuration = `${Math.random() * 5 + 10}s`;
-        item.style.fontSize = `${Math.random() * 15 + 15}px`; 
+        item.style.fontSize = `${Math.random() * 15 + 15}px`;
         document.body.appendChild(item);
     
         item.addEventListener('animationend', () => {
@@ -28,54 +46,54 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     let fallIntervalId;
-    const startFallAnimation = (item) => {
-        fallIntervalId = setInterval(() => createFallingItem(item), 500);
+    const startIncrementalAnimation = (emojis, initialInterval = 1000, incrementStep = 100, duration = 15000) => {
+        let interval = initialInterval;
     
+        const createInterval = () => {
+            return setInterval(() => {
+                const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+                createFallingItem(randomEmoji);
+            }, interval);
+        };
+    
+        fallIntervalId = createInterval();
+    
+        const incrementIntervalId = setInterval(() => {
+            clearInterval(fallIntervalId);
+            interval = Math.max(200, interval - incrementStep); 
+            fallIntervalId = createInterval();
+        }, 3000); // Adjust every 3 seconds
+    
+        // Stop after the total duration
         setTimeout(() => {
             clearInterval(fallIntervalId);
-        }, 15000);
+            clearInterval(incrementIntervalId);
+        }, duration);
     };
     
+    // Start season animation
     const startSeasonAnimation = () => {
-        if (isSpring) {
-            startFallAnimation('🌸');
+        const holidayEmoji = holidays[month]?.[day];
+        if (holidayEmoji) {
+            startIncrementalAnimation([holidayEmoji]);
+        } else if (isSpring) {
+            startIncrementalAnimation(seasonalEmojis.spring);
         } else if (isSummer) {
-            startSummerAnimation('☀️'); 
+            startIncrementalAnimation(seasonalEmojis.summer);
         } else if (isFall) {
-            startFallAnimation('🍂'); 
+            startIncrementalAnimation(seasonalEmojis.fall);
         } else if (isWinter) {
-            startFallAnimation('❄️'); 
+            startIncrementalAnimation(seasonalEmojis.winter);
         }
-    };
-    
-    const startSummerAnimation = () => {
-        fallIntervalId = setInterval(() => {
-            const item = document.createElement('div');
-            item.textContent = '☀️';
-            item.classList.add('falling-item');
-            item.style.left = `${Math.random() * 100}vw`;
-            item.style.animationName = 'float'; 
-            item.style.animationDuration = `${Math.random() * 3 + 8}s`; 
-            item.style.fontSize = `${Math.random() * 20 + 20}px`;
-            document.body.appendChild(item);
-    
-            item.addEventListener('animationend', () => {
-                item.remove();
-            });
-        }, 600);
-    
-        setTimeout(() => {
-            clearInterval(fallIntervalId);
-        }, 15000);
     };
     
     startSeasonAnimation();
     
     function showWhitepaper(event) {
-        event.preventDefault(); // Prevent the default anchor behavior
+        event.preventDefault(); 
         console.log("Whitepaper button clicked");
         window.open("./static/whitepaper.html", "Whitepaper", "width=800,height=600");
-        document.getElementById('whitepaper').scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the section
+        document.getElementById('whitepaper').scrollIntoView({ behavior: 'smooth' }); 
     }
     
     function showDev(event) {
@@ -83,14 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Dev Docs button clicked");
         window.open("https://github.com/DegenVets/f2t/blob/gh-pages/docs/README.md", 
                     "DevDocs", "width=800,height=600");
-        document.getElementById('dev').scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the section
+        document.getElementById('dev').scrollIntoView({ behavior: 'smooth' });
     }
     
     function showPolicy(event) {
         event.preventDefault();
         console.log("Policy button clicked");
         window.open("./static/policy.html", "policy", "width=800,height=600"); 
-        document.getElementById('policy').scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the section
+        document.getElementById('policy').scrollIntoView({ behavior: 'smooth' });
     }
         
 
