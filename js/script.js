@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const isWinter = month >= 11 || month <= 1; // December, January, February
     
     const holidays = {
-        0: { 1: '🎆' }, // New Year's Day in January
+        0: { 1: '🎉' }, // New Year's Day in January
         1: { 14: '❤️' }, // Valentine's Day in February
         2: { 17: '☘️' }, // St. Patrick's Day in March
         10: { 31: '🎃' }, // Halloween in October
         11: { 25: '🎄' }, // Christmas in December
-        11: { 31: '🎆' }, // New Year's Eve in December
+        11: { 31: '💥' }, // New Year's Eve in December
     };
     
     const seasonalEmojis = {
